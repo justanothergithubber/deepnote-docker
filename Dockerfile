@@ -1,7 +1,3 @@
-FROM ubuntu:latest
-RUN apt-get update && apt-get install -y software-properties-common
-RUN add-apt-repository ppa:ubuntu-toolchain-r/ppa
-RUN add-apt-repository ppa:deadsnakes/ppa
-RUN apt-get update && apt-get -y install gcc python3.9
-CMD python -V
-CMD gcc --version
+FROM python:buster
+RUN echo 'deb http://deb.debian.org/debian testing main' >> /etc/apt/sources.list
+RUN apt update -y && apt install -y gcc
